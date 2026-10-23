@@ -53,38 +53,17 @@ footer{text-align:center;color:#fff7fe;font-size:.9rem;margin-top:28px}
 <div class="actions">
 <button class="primary" id="surpriseBtn">Open Your Surprise 💝</button>
 <button class="secondary" id="fireBtn">Launch Fireworks 🎆</button>
-<button class="secondary" id="musicBtn">▶ Play Music</button>
 </div>
 </header>
 
 <section class="panel" id="surprise">
 <h2 style="text-align:center">A little wish for Mahima 💌</h2>
-<p class="message" id="wishText">Happy Birthday, Mahima! 🥳💖 I hope your special day is filled with laughter, lovely surprises, beautiful memories and people who make you smile. May this new year bring you confidence to chase your dreams, courage for every new adventure, and countless reasons to be happy. Keep shining, keep smiling, and always remember how wonderfully special you are. Wishing you the happiest birthday ever! 🌈🎂✨</p>
-</section>
-
-<section class="panel">
-<h2>Beautiful memories 📸</h2>
-
-<div class="grid" id="gallery">
-<div class="photo"><img src="photo1.jpg" alt="Birthday memory 1" onerror="this.remove();this.parentElement.innerHTML='<span>🌸<br>Add photo1.jpg</span>'"></div>
-<div class="photo"><img src="photo2.jpg" alt="Birthday memory 2" onerror="this.remove();this.parentElement.innerHTML='<span>📷<br>Add photo2.jpg</span>'"></div>
-<div class="photo"><img src="photo3.jpg" alt="Birthday memory 3" onerror="this.remove();this.parentElement.innerHTML='<span>💖<br>Add photo3.jpg</span>'"></div>
-</div>
-</section>
-
-<section class="panel">
-<h2>Birthday music 🎵</h2>
-
-<div class="controls">
-<button class="primary" id="musicToggle">▶ Play Music</button>
-<span id="musicStatus" class="muted" aria-live="polite"></span>
-</div>
-<audio id="audio" src="birthday-song.mp3" loop preload="none"></audio>
+<p class="message" id="wishText">Happy Birthday, Mahima! 🥳💖 You’re not just a wonderful colleague, but also a lovely friend whose cheerful presence makes work days brighter. It’s a pleasure seeing you learn, grow, and bring your own spark to everything you do. May this new year of your life bring you confidence to chase your dreams, success in every goal, exciting opportunities, good health, and lots of reasons to smile. Keep being your kind, talented, and amazing self—your future is full of beautiful possibilities. Wishing you a day as lovely and special as you are! 🌸🎂✨</p>
 </section>
 
 <section class="panel">
 <h2>Birthday sparkle ✨</h2>
-<p class="muted">Mahima, here’s a little burst of birthday magic just for you! Tap below to light up your day with colourful fireworks—because someone as wonderful as you deserves an extra-special celebration. 🎆💖</p>
+<p class="muted">Mahima, here’s a little birthday magic just for you! Keep growing, keep shining, and never stop believing in yourself. You deserve wonderful things today and in the year ahead. 🎆💖</p>
 <div class="controls"><button class="primary" id="moreFire">More fireworks 🎆</button></div>
 </section>
 <footer>Made with <span class="heart">💖</span> for Mahima · Happy Birthday!</footer>
@@ -105,9 +84,6 @@ function burst(x,y,count=70){for(let i=0;i<count;i++){let a=Math.random()*Math.P
 function animate(){ctx.clearRect(0,0,innerWidth,innerHeight);particles=particles.filter(p=>p.life>0);for(const p of particles){p.x+=p.vx;p.y+=p.vy;p.vy+=.035;p.vx*=.99;p.life--;ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.fillStyle=`hsl(${p.h} 100% 70%)`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;requestAnimationFrame(animate)}animate();
 setInterval(()=>{if(Math.random()<.65)burst(Math.random()*innerWidth,Math.random()*innerHeight*.45+30,24)},2300);
 setInterval(()=>{const s=document.createElement('div');s.className='confetti';s.textContent=['✨','💖','🌸','⭐','🎉','💛'][Math.floor(Math.random()*6)];s.style.left=Math.random()*100+'vw';s.style.fontSize=(12+Math.random()*20)+'px';s.style.animationDuration=(5+Math.random()*5)+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),11000)},550);
-const audio=$('audio');
-$('musicToggle').addEventListener('click',async()=>{if(audio.paused){try{await audio.play();$('musicToggle').textContent='Ⅱ Pause Music';$('musicStatus').textContent='Music is playing 🎵'}catch(e){$('musicStatus').textContent='Music could not play. Please check the audio file.'}}else{audio.pause();$('musicToggle').textContent='▶ Play Music';$('musicStatus').textContent='Music paused'}});
-audio.addEventListener('error',()=>{$('musicStatus').textContent='';});
 </script>
 </body>
 </html>
