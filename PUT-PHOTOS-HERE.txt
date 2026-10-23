@@ -1,0 +1,1 @@
+Upload your photos here. Use photo1.jpg, photo2.jpg, photo3.jpg or edit the image paths in index.html.
